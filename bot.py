@@ -40,47 +40,6 @@ class PlexBotEmoji:
     def nortonn():
         return bot.get_emoji(858742806989504543)
 
-class random_footer:
-    def __init__(self):
-        num = random.randint(0, 10)
-        match num:
-            case 0:
-                self.text = "An agpwat moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/873056708728082442.png"
-            case 1:
-                self.text = "A norton moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/962200850942550106.png"
-            case 2:
-                self.text = "A sadkek moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/882088202326904832.png"
-            case 3:
-                self.text = "A raffi moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/859185490234179615.png"
-            case 4:
-                self.text = "A mild_dissatisfaction moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/925227914566463498.png"
-            case 5:
-                self.text = "A klaus moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/825880863862423552.png"
-            case 6:
-                self.text = "A shitcord moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/835620319540674570.png"
-            case 7:
-                self.text = "A billgates moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/844399371742609438.png"
-            case 8:
-                self.text = "A magikkek moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/881959153977942017.gif"
-            case 9:
-                self.text = "A kek moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/859461499247919104.png"
-            case 10:
-                self.text = "A rafficlose moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/849364281454755890.png"
-            case 11:
-                self.text = "A gillbates moment has occurred!"
-                self.image = "https://cdn.discordapp.com/emojis/963406960651300864.png"
-
 class UserChecks:
     async def do_vc_check(ctx: commands.Context):
         if ctx.author.voice is None:
@@ -92,8 +51,6 @@ class UserChecks:
             if ctx.voice_client:
                 embed.description = "Please join the voice channel " + ctx.voice_client.channel.mention + " to use this command!"
                 embed.color = nextcord.Color.yellow()
-            footer = random_footer()
-            embed.set_footer(text=footer.text, icon_url=footer.image)
             await ctx.reply(embed=embed)
             raise Exception("user not in vc")
 
@@ -104,8 +61,8 @@ class UserChecks:
                 description="I am currently in the vc " + ctx.voice_client.channel.mention + ". Please join this vc to use this command!",
                 color=nextcord.Color.red()
             )
-            footer = random_footer()
-            embed.set_footer(text=footer.text, icon_url=footer.image)
+
+
             await ctx.reply(embed=embed)
             raise Exception("user not in same vc")
 
@@ -116,8 +73,8 @@ class UserChecks:
                 description="You are on the blacklist! Please contact a moderator to be removed from the blacklist!",
                 color=nextcord.Color.red()
             )
-            footer = random_footer()
-            embed.set_footer(text=footer.text, icon_url=footer.image)
+
+
             await ctx.reply(embed=embed)
             raise Exception("user on blacklist")
         
@@ -129,8 +86,8 @@ class UserChecks:
                 description="Joining the channel" + ctx.author.voice.channel.mention + " now",
                 color=nextcord.Color.yellow()
             )
-            footer = random_footer()
-            embed.set_footer(text=footer.text, icon_url=footer.image)
+
+
             msg = await ctx.reply(embed=embed)
             vc = await ctx.author.voice.channel.connect()
             embed.title="{} I am now in the voice channel:".format(PlexBotEmoji.billgates())
@@ -149,8 +106,7 @@ class Main(commands.Cog):
             description=f"{ctx.bot.latency * 1000:.2f} ms\n",
             color=nextcord.Color.green()
         )
-        footer = random_footer()
-        embed.set_footer(text=footer.text, icon_url=footer.image)
+
         await ctx.reply(embed=embed)
     @commands.command()
     async def about(self, ctx: commands.Context):
@@ -176,8 +132,8 @@ class Main(commands.Cog):
                 description="You do not have permission to use this command.\n",
                 color=nextcord.Color.red()
             )
-            footer = random_footer()
-            embed.set_footer(text=footer.text, icon_url=footer.image)
+
+
             await ctx.reply(embed=embed)
 
 class Media(commands.Cog):
